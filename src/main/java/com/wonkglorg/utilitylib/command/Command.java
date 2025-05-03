@@ -1,4 +1,4 @@
-package com.wonkglorg.utilitylib.command.command;
+package com.wonkglorg.utilitylib.command;
 
 import com.wonkglorg.utilitylib.command.cooldown.CooldownManager;
 import org.bukkit.Bukkit;

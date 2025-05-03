@@ -1,4 +1,4 @@
-package com.wonkglorg.utilitylib.command.command;
+package com.wonkglorg.utilitylib.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
