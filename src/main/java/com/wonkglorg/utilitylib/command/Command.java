@@ -55,11 +55,16 @@ public abstract class Command extends Arguments implements TabExecutor{
 	/**
 	 * Executes when the player finished writing the command and presses enter
 	 *
-	 * @param player {@link Player} entering command can be null if allow console is true
+	 * @param sender {@link Player} entering the command.
+	 * @param command The command that was executed
+	 * @param label  The alias of the command that was used
 	 * @param args   Following arguments to main command
 	 * @return False if command arguments are wrong.
 	 */
-	public abstract boolean execute(Player player, String[] args);
+	public abstract boolean execute(@NotNull CommandSender sender,
+									@NotNull org.bukkit.command.Command command,
+									@NotNull String label,
+									@NotNull String[] args);
 	
 	/**
 	 * Code block executes whenever a player types arguments after the command
@@ -80,11 +85,11 @@ public abstract class Command extends Arguments implements TabExecutor{
 							 @NotNull String[] args) {
 		if(sender instanceof Player player){
 			super.args = args;
-			return execute(player, args);
+			return execute(player, command, label, args);
 		}
 		if(allowConsole()){
 			super.args = args;
-			return execute(null, args);
+			return execute(sender, command, label, args);
 		}
 		return true;
 	}

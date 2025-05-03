@@ -27,7 +27,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 			return false;
 		}
 		setArgs(args);
-		return command(sender, command, label, args);
+		return execute(sender, command, label, args);
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 	 * @param args The arguments passed to the command
 	 * @return True if the command was executed successfully, false otherwise
 	 */
-	protected abstract boolean command(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args);
+	protected abstract boolean execute(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args);
 	
 	/**
 	 * When tab completing, this method is called to get the list of possible completions.
