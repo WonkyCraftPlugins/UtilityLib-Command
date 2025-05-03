@@ -3,9 +3,12 @@ package com.wonkglorg.utilitylib.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
+import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Subcommand extends Arguments implements TabExecutor{
@@ -14,7 +17,6 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 	
 	/**
 	 * Instantiates a new Subcommand.
-	 * @param argument The argument to match
 	 * @param index The index of the argument in the command
 	 */
 	protected Subcommand(int index) {

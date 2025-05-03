@@ -7,12 +7,9 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -48,20 +45,6 @@ public abstract class Command extends Arguments implements TabExecutor{
 		} else {
 			LOOGER.log(Level.SEVERE, "Command " + name + " could not be loaded missing plugin.yml implementation!");
 		}
-	}
-	
-	/**
-	 * Returns a sorted list of strings that partially match the input string
-	 *
-	 * @param arg     the arg
-	 * @param original the original list of strings to autocomplete
-	 * @return the new list containing the matches
-	 */
-	public List<String> matchArg(final String arg, final List<String> original) {
-		List<String> matches = new ArrayList<>();
-		StringUtil.copyPartialMatches(arg, original, matches);
-		Collections.sort(matches);
-		return matches;
 	}
 	
 	/**

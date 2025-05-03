@@ -6,7 +6,12 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Utility class that handles argument parsing
@@ -329,5 +334,21 @@ public abstract class Arguments{
 	
 	public void setArgumentIndex(int argumentIndex) {
 		this.argumentIndex = argumentIndex;
+	}
+	
+	
+	
+	/**
+	 * Returns a sorted list of strings that partially match the input string
+	 *
+	 * @param arg     the arg
+	 * @param original the original list of strings to autocomplete
+	 * @return the new list containing the matches
+	 */
+	public List<String> matchArg(final String arg, final List<String> original) {
+		List<String> matches = new ArrayList<>();
+		StringUtil.copyPartialMatches(arg, original, matches);
+		Collections.sort(matches);
+		return matches;
 	}
 }
