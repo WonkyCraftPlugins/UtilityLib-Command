@@ -3,12 +3,10 @@ package com.wonkglorg.utilitylib.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
-import org.bukkit.util.StringUtil;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public abstract class Subcommand extends Arguments implements TabExecutor{
@@ -32,7 +30,6 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 		return command(sender, command, label, args);
 	}
 	
-
 	@Override
 	public @Nullable List<String> onTabComplete(@NotNull CommandSender sender,
 												@NotNull Command command,
@@ -42,7 +39,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 			return List.of();
 		}
 		setArgs(args);
-		return tabComplete(sender, command, label, args);
+		return tabComplete((Player) sender, command, label, args);
 	}
 	
 	/**
@@ -63,10 +60,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 	 * @param args The arguments passed to the command
 	 * @return A list of possible completions
 	 */
-	protected abstract List<String> tabComplete(@NotNull CommandSender sender,
-												@NotNull Command command,
-												@NotNull String label,
-												@NotNull String[] args);
+	protected abstract List<String> tabComplete(@NotNull Player player, @NotNull Command command, @NotNull String label, @NotNull String[] args);
 	
 	public int getIndex() {
 		return index;
