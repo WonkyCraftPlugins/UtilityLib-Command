@@ -54,7 +54,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 	
 	/**
 	 * When tab completing, this method is called to get the list of possible completions.
-	 * @param sender The sender of the command
+	 * @param player The sender of the command
 	 * @param command The command being executed
 	 * @param label The label of the command
 	 * @param args The arguments passed to the command
