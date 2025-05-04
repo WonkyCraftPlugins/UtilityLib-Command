@@ -11,14 +11,12 @@ import java.util.List;
 
 public abstract class Subcommand extends Arguments implements TabExecutor{
 	
-	private final int index;
-	
 	/**
 	 * Instantiates a new Subcommand.
 	 * @param index The index of the argument in the command
 	 */
 	protected Subcommand(int index) {
-		this.index = index;
+		super(index);
 	}
 	
 	@Override

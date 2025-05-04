@@ -35,6 +35,7 @@ public abstract class Command extends Arguments implements TabExecutor{
 	 * @param name   the name
 	 */
 	public Command(@NotNull JavaPlugin plugin, @NotNull String name) {
+		super(0);
 		this.plugin = plugin;
 		PluginCommand pluginCommand = plugin.getCommand(name);
 		this.name = name;

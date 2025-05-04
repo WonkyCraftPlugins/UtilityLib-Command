@@ -27,7 +27,16 @@ public abstract class Arguments{
 	/**
 	 * How many parent arguments there were before this command (decides the offset to parse the arguments by)
 	 */
-	protected int argumentIndex = 0;
+	protected final int index;
+	
+	/**
+	 * Instantiates a new Arguments.
+	 *
+	 * @param argumentIndex The index of the argument in the command
+	 */
+	public Arguments(int argumentIndex) {
+		this.index = argumentIndex;
+	}
 	
 	/**
 	 * Returns the argument at the specified index as a string or null if no argument exists at that index
@@ -37,7 +46,7 @@ public abstract class Arguments{
 	 */
 	protected String argAsString(int index) {
 		try{
-			return this.args[index + this.argumentIndex];
+			return this.args[index + this.index];
 		} catch(Exception e){
 			return null;
 		}
@@ -66,7 +75,7 @@ public abstract class Arguments{
 	 */
 	protected String argAsString(int index, @NotNull String defaultValue) {
 		try{
-			return this.args[index + this.argumentIndex];
+			return this.args[index + this.index];
 		} catch(Exception e){
 			return defaultValue;
 		}
@@ -329,18 +338,14 @@ public abstract class Arguments{
 	}
 	
 	public int getArgumentIndex() {
-		return argumentIndex;
-	}
-	
-	public void setArgumentIndex(int argumentIndex) {
-		this.argumentIndex = argumentIndex;
+		return index;
 	}
 	
 	/**
 	 * @return the remaining argument count from the current index
 	 */
 	public int argCount() {
-		return args.length - argumentIndex;
+		return args.length - index;
 	}
 	
 	/**
