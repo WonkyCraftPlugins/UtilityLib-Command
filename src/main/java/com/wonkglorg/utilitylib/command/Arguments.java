@@ -336,7 +336,12 @@ public abstract class Arguments{
 		this.argumentIndex = argumentIndex;
 	}
 	
-	
+	/**
+	 * @return the remaining argument count from the current index
+	 */
+	public int argCount() {
+		return args.length - argumentIndex;
+	}
 	
 	/**
 	 * Returns a sorted list of strings that partially match the input string
