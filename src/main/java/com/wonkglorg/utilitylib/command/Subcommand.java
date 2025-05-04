@@ -23,7 +23,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 	
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if(args.length <= index){
+		if(args.length < index){
 			return false;
 		}
 		setArgs(args);
@@ -35,7 +35,7 @@ public abstract class Subcommand extends Arguments implements TabExecutor{
 												@NotNull Command command,
 												@NotNull String label,
 												@NotNull String[] args) {
-		if(args.length <= index){
+		if(args.length < index){
 			return List.of();
 		}
 		setArgs(args);
